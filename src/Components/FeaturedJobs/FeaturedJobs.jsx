@@ -12,12 +12,12 @@ const FeaturedJobs = () => {
     }, [])
 
     return (
-        <div className="max-w-6xl mx-auto my-6">
+        <div className="w-[94%] md:max-w-6xl mx-auto my-6">
             <div className="text-center">
-                <h2 className="text-4xl font-bold mb-4">Job Category List</h2>
+                <h2 className="text-4xl font-bold mb-4">Featured Jobs</h2>
                 <p className="text-[#757575]">Explore thousands of job opportunities with all the information you need. Its your future.</p>
             </div>
-            <div className="grid grid-cols-2 gap-6 my-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
                 {
                     jobs.slice(0, dataLength).map(job => <Job
                         key={job.id}
