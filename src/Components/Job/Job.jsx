@@ -1,5 +1,6 @@
 import { FaLocationDot } from "react-icons/fa6";
 import { HiCurrencyDollar } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 const Job = ({ job }) => {
     const { id, company_name, job_title, location, logo, salary, job_type, remote_or_onsite } = job;
@@ -19,7 +20,9 @@ const Job = ({ job }) => {
                     <p className="flex items-center gap-2 text-[#757575] font-medium text-base"><HiCurrencyDollar /> {salary}</p>
                 </div>
             </div>
-            <button className="btn bg-[#7E90FE] text-white px-6 font-bold">View Details</button>
+            <Link to={`/job/${id}`}>
+                <button className="btn bg-[#7E90FE] text-white px-6 font-bold">View Details</button>
+            </Link>
         </div>
     );
 };
