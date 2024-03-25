@@ -9,7 +9,7 @@ const Banner = () => {
                     <button className="bg-[#7E90FE] text-white font-semibold py-3 px-6 rounded-md">Get Started</button>
                 </div>
                 <div className="w-full md:w-[46%]">
-                    <img src="/src/assets/images/user.png" alt="" />
+                    <img src="/images/user.png" alt="" />
                 </div>
             </div>
         </div>

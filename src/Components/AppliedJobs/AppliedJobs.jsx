@@ -42,7 +42,7 @@ const AppliedJobs = () => {
             {/* detail banner */}
             <div
                 style={{
-                    backgroundImage: `url(/src/assets/images/bg1.png)`,
+                    backgroundImage: `url(/images/bg1.png)`,
                     backgroundRepeat: "no-repeat",
                 }}
                 className="py-20 text-center"
