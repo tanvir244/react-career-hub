@@ -21,7 +21,7 @@ const AppliedJobs = () => {
             setDisplayJobs(onsiteJobs);
         }
     }
-
+    console.log(jobs);
     useEffect(() => {
         const storedJobIds = getStoredJobApplication();
         if (jobs.length > 0) {
@@ -39,7 +39,17 @@ const AppliedJobs = () => {
 
     return (
         <div>
-            <div className="w-[70%] mx-auto flex justify-end mt-12 mb-4">
+            {/* detail banner */}
+            <div
+                style={{
+                    backgroundImage: `url(/src/assets/images/bg1.png)`,
+                    backgroundRepeat: "no-repeat",
+                }}
+                className="py-20 text-center"
+            >
+                <h2 className="text-5xl font-bold">Applied Jobs</h2>
+            </div>
+            <div className="w-[70%] mx-auto flex justify-end mt-2 mb-4">
                 <details className="dropdown">
                     <summary className="m-1 btn">Filter By</summary>
                     <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">

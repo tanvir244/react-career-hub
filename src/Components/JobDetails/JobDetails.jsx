@@ -1,8 +1,10 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import { BiDollarCircle } from "react-icons/bi";
 import { PiSubtitlesBold } from "react-icons/pi";
 import { FaLocationDot } from "react-icons/fa6";
 import { saveJobApplication } from "../Utility/Utility";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const JobDetails = () => {
     const jobs = useLoaderData();
@@ -12,7 +14,8 @@ const JobDetails = () => {
     const { job_description, job_responsibility, educational_requirements, experiences, salary, job_title, contact_information } = job;
 
     const handleApplyJob = () => {
-        saveJobApplication(idInt)
+        saveJobApplication(idInt);
+        toast("You have applied successfully!");
     }
 
     return (
@@ -54,11 +57,11 @@ const JobDetails = () => {
                         <p className="flex gap-2 py-1"><span className="text-[#7E90FE] text-xl"><PiSubtitlesBold /></span> <span className="font-bold">Email:</span> {contact_information.email}</p>
                         <p className="flex gap-2 py-1"><span className="text-[#7E90FE] text-xl"><FaLocationDot /></span> <span className="font-bold">Address:</span> {contact_information.address}</p>
                     </div>
-                    <Link to="/applied">
-                        <button onClick={() => handleApplyJob()} className="btn bg-[#7E90FE] text-white px-6 font-bold w-full">Apply Now</button>
-                    </Link>
+                    {/* <button onClick={() => handleApplyJob()} className="btn bg-[#7E90FE] text-white px-6 font-bold w-full">Apply Now</button> */}
+                    <button onClick={handleApplyJob} className="btn bg-[#7E90FE] text-white px-6 font-bold w-full">Apply Now</button>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

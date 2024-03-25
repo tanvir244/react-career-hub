@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
     return (
-        <div>
-            <h2>404</h2>
-            <h2>Page not found</h2>
+        <div className="font-semibold text-center py-32">
+            <h2 className="text-6xl">404</h2>
+            <h2 className="text-5xl my-8">Page not found</h2>
             <Link to="/">
-                <button className="btn btn-primary">Go Back</button>
+                <button className="btn bg-black text-white px-20 text-xl">Go Back</button>
             </Link>
         </div>
     );
