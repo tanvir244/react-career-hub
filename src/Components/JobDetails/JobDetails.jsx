@@ -1,7 +1,8 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import { BiDollarCircle } from "react-icons/bi";
 import { PiSubtitlesBold } from "react-icons/pi";
 import { FaLocationDot } from "react-icons/fa6";
+import { saveJobApplication } from "../Utility/Utility";
 
 const JobDetails = () => {
     const jobs = useLoaderData();
@@ -9,7 +10,10 @@ const JobDetails = () => {
     const idInt = parseInt(id);
     const job = jobs.find(job => job.id === idInt);
     const { job_description, job_responsibility, educational_requirements, experiences, salary, job_title, contact_information } = job;
-    console.log(id, job)
+
+    const handleApplyJob = () => {
+        saveJobApplication(idInt)
+    }
 
     return (
         <div>
@@ -26,8 +30,8 @@ const JobDetails = () => {
             {/* detail contents */}
             <div className="w-[85%] mx-auto py-8 grid gap-4 md:grid-cols-4">
                 <div className="border md:col-span-3 space-y-12 p-8">
-                    <p className="text-2xl text-center mt-4"><span className="font-bold">Job Id: </span>{ idInt }</p>
-                    <p className="text-[#757575]"><span className="font-bold text-black">Job Description: </span>{ job_description}</p>
+                    <p className="text-2xl text-center mt-4"><span className="font-bold">Job Id: </span>{idInt}</p>
+                    <p className="text-[#757575]"><span className="font-bold text-black">Job Description: </span>{job_description}</p>
                     <p className="text-[#757575]"><span className="font-bold text-black">Job Description: </span>{job_responsibility}</p>
                     <p>
                         <p className="font-bold">Educational Requirement:</p>
@@ -50,7 +54,9 @@ const JobDetails = () => {
                         <p className="flex gap-2 py-1"><span className="text-[#7E90FE] text-xl"><PiSubtitlesBold /></span> <span className="font-bold">Email:</span> {contact_information.email}</p>
                         <p className="flex gap-2 py-1"><span className="text-[#7E90FE] text-xl"><FaLocationDot /></span> <span className="font-bold">Address:</span> {contact_information.address}</p>
                     </div>
-                    <button className="btn bg-[#7E90FE] text-white px-6 font-bold w-full">Apply Now</button>
+                    <Link to="/applied">
+                        <button onClick={() => handleApplyJob()} className="btn bg-[#7E90FE] text-white px-6 font-bold w-full">Apply Now</button>
+                    </Link>
                 </div>
             </div>
         </div>
